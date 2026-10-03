@@ -8,7 +8,7 @@ NC='\033[0m'
 
 CAPABILITY_DIR="/etc/inputplumber/capability_maps.d"
 ATOMIC_DIR="/etc/atomic-update.conf.d"
-HOTKEY_MAP="${CAPABILITY_DIR}/mrab_v2_hotkeys.yaml"
+HOTKEY_MAP="${CAPABILITY_DIR}/ally_type1.yaml"
 ATOMIC_FILE="${ATOMIC_DIR}/mrab_v2.conf"
 STATE_DIR="/var/lib/mrab_v2"
 
@@ -22,7 +22,13 @@ if [ "$EUID" -ne 0 ]; then
   exit 1
 fi
 
-rm -f "$HOTKEY_MAP" "$ATOMIC_FILE"
+# Solo borramos si es el archivo de MRAB-v2
+if [ -f "$HOTKEY_MAP" ] && grep -q "Managed by MRAB-v2" "$HOTKEY_MAP"; then
+  rm -f "$HOTKEY_MAP"
+  echo -e "${GREEN}Removed: $HOTKEY_MAP${NC}"
+fi
+
+rm -f "$ATOMIC_FILE"
 rm -rf "$STATE_DIR"
 
 if systemctl cat inputplumber.service >/dev/null 2>&1; then
