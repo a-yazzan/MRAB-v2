@@ -1,34 +1,39 @@
 # MRAB-v2
 
-Alternative layout for **ROG Ally + SteamOS**.
+Alternative button layout for **ROG Ally and ROG Ally X running SteamOS**.
 
-This version swaps the rear paddles with the Armoury Crate / Command Center buttons so you can use proper Steam Deck-style holds (Guide + mouse, Quick Access, etc.).
+This version swaps the rear paddles with the Armoury Crate and Command Center buttons, allowing you to use proper Steam Deck-style button combinations (Guide + mouse, Quick Access Menu, etc.).
 
 ## Layout
 
-| Physical Button       | Function              |
-|-----------------------|-----------------------|
-| **M1 (Left Paddle)**  | Guide (Steam button) |
-| **M2 (Right Paddle)** | Quick Access (QAM)   |
-| **Command Center**    | Left Paddle          |
-| **Armoury Crate**     | Right Paddle         |
-| Start / Select        | Unchanged            |
+| Physical Button       | Function                |
+| :-------------------- | :---------------------- |
+| **M1 (Left Paddle)**  | Guide (Steam button)    |
+| **M2 (Right Paddle)** | Quick Access Menu (QAM) |
+| **Command Center**    | Left Paddle             |
+| **Armoury Crate**     | Right Paddle            |
+| **Start / Select**    | Unchanged               |
 
-## Installation
+## Installation & Uninstallation
+
+**Install:**
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/a-yazzan/MRAB-v2/main/install.sh | sudo bash
+```
 
-## Uninstallation
+**Uninstall:**
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/a-yazzan/MRAB-v2/main/uninstall.sh | sudo bash
+```
 
-Notes
+## Notes
 
-Requires InputPlumber (included in modern SteamOS)
-Protected against SteamOS updates via atomic-update whitelist
-Compatible with ROG Ally (RC71L) and ROG Ally X (RC72LA)
+* Requires InputPlumber (included in modern SteamOS versions).
+* Protected against SteamOS updates via the atomic-update whitelist.
+* Compatible with the ROG Ally (RC71L) and ROG Ally X (RC72LA).
 
-Credits
-Inspired by the original MRAB by 0Chencc.
+## Credits
+
+Inspired by the original [MRAB](https://github.com/0Chencc/MRAB) by 0Chencc.
