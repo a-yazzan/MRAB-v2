@@ -8,7 +8,7 @@ NC='\033[0m'
 
 CAPABILITY_DIR="/etc/inputplumber/capability_maps.d"
 ATOMIC_DIR="/etc/atomic-update.conf.d"
-HOTKEY_MAP="${CAPABILITY_DIR}/mrab_v2_hotkeys.yaml"
+HOTKEY_MAP="${CAPABILITY_DIR}/ally_type1.yaml"
 ATOMIC_FILE="${ATOMIC_DIR}/mrab_v2.conf"
 STATE_DIR="/var/lib/mrab_v2"
 
@@ -29,14 +29,18 @@ fi
 
 mkdir -p "$CAPABILITY_DIR" "$ATOMIC_DIR" "$STATE_DIR"
 
+# Limpiamos posibles archivos viejos de versiones anteriores
+rm -f "${CAPABILITY_DIR}/mrab_v2_hotkeys.yaml" 2>/dev/null || true
+
 cat > "$HOTKEY_MAP" << 'EOF'
 # Managed by MRAB-v2
+# Overrides the stock aly1 map
 # Paddles → Guide + QuickAccess
 # AC / CC → Paddles
 version: 1
 kind: CapabilityMap
-name: MRAB-v2 Hotkeys
-id: mrab_v2_hotkeys
+name: Ally Type 1
+id: aly1
 
 mapping:
   - name: Left Paddle to Guide
